@@ -73,9 +73,9 @@
   ],
 
   "team": [
-    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" },
-    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" },
-    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" }
+    { "name": "Muhammad Hasnain", "role": "Kotlin Multiplatform", "linkedin": "", "github": "https://github.com/naine-dev" },
+    { "name": "Syed Turab Haider", "role": "Kotlin Multiplatform", "linkedin": "https://www.linkedin.com/in/syed-turaab-haider-kazmi-93440228a", "github": "https://github.com/kazmi-dev" },
+    { "name": "Muhammad Danyal", "role": "ASO Expert Marketing", "linkedin": "", "github": "" }
   ],
 
   "contact": {
