@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Clean URLs: Cloudflare Pages serves /privacy.html at /privacy -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://agileinterface.com/</loc></url>
+  <url><loc>https://agileinterface.com/privacy</loc></url>
+  <url><loc>https://agileinterface.com/terms</loc></url>
+</urlset>

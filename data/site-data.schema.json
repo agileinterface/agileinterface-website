@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agile Interface website content",
+  "description": "Everything editable on the website. VS Code uses this file to autocomplete and validate site-data.json.",
+  "type": "object",
+  "required": ["company", "hero", "products", "team", "contact", "footer"],
+  "definitions": {
+    "link": {
+      "type": "object",
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string" },
+        "url": { "type": "string", "description": "https://…, mailto:…, a page like /privacy, or #section. Leave empty to hide the link." }
+      },
+      "additionalProperties": false
+    },
+    "platform": { "type": "string", "enum": ["android", "ios", "desktop", "web"] }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "company": {
+      "type": "object",
+      "required": ["name", "legalName", "email"],
+      "properties": {
+        "name": { "type": "string" },
+        "legalName": { "type": "string" },
+        "registrationNo": { "type": "string" },
+        "address": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "location": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "hero": {
+      "type": "object",
+      "required": ["tagline"],
+      "properties": { "tagline": { "type": "string", "maxLength": 140 } },
+      "additionalProperties": false
+    },
+    "ticker": {
+      "type": "object",
+      "properties": {
+        "words": { "type": "array", "items": { "type": "string" } },
+        "symbols": { "type": "array", "items": { "type": "string" } },
+        "secondary": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["title", "text"],
+            "properties": { "title": { "type": "string" }, "text": { "type": "string" } },
+            "additionalProperties": false
+          }
+        },
+        "targets": { "type": "array", "items": { "$ref": "#/definitions/platform" } },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["title", "text"],
+            "properties": { "hash": { "type": "string", "pattern": "^[0-9a-f]{7}$" }, "title": { "type": "string" }, "text": { "type": "string" } },
+            "additionalProperties": false
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["icon", "name", "store"],
+            "properties": { "icon": { "$ref": "#/definitions/platform" }, "name": { "type": "string" }, "store": { "type": "string" } },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "terminal": {
+      "type": "array",
+      "description": "Commands in the 'Get to know us' terminal. {email} and {location} are replaced with company values.",
+      "items": {
+        "type": "object", "required": ["command", "output"],
+        "properties": { "command": { "type": "string" }, "output": { "type": "array", "items": { "type": "string" } } },
+        "additionalProperties": false
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "status", "targets"],
+        "properties": {
+          "name": { "type": "string" },
+          "file": { "type": "string", "description": "Shown in the card header, e.g. qibla_finder.kt" },
+          "description": { "type": "string" },
+          "status": { "type": "string", "enum": ["live", "in-development", "coming-soon"] },
+          "targets": { "type": "array", "items": { "$ref": "#/definitions/platform" } },
+          "icon": { "type": "string", "description": "Path to a square image, e.g. assets/img/products/my-app.png. Leave empty for a letter tile." },
+          "links": { "type": "array", "items": { "$ref": "#/definitions/link" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "team": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["name", "role"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "linkedin": { "type": "string" },
+          "github": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "ctaLabel": { "type": "string" },
+        "emailSubject": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "footer": {
+      "type": "object",
+      "properties": {
+        "legal": { "type": "array", "items": { "$ref": "#/definitions/link" } },
+        "social": { "type": "array", "items": { "$ref": "#/definitions/link" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

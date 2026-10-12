@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects — https://developers.cloudflare.com/pages/configuration/redirects/
+# Format: /from  /to  status
+# (.html → clean URL redirects are automatic, no rule needed.)
+
+# Friendly short links you can paste into Play Console / store listings
+/privacy-policy     /privacy            301
+/terms-of-service   /terms              301
+/delete-account     /privacy#deletion   301

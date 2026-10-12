@@ -1,0 +1,14 @@
+{
+  "name": "Agile Interface",
+  "short_name": "Agile Interface",
+  "description": "Kotlin Multiplatform app studio — Android, iOS, desktop and web.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0F1B2D",
+  "background_color": "#070B14",
+  "icons": [
+    { "src": "/assets/favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/favicon/maskable-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

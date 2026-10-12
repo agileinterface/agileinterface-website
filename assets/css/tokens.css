@@ -1,0 +1,90 @@
+/* ==========================================================================
+   tokens.css — design tokens (colours, fonts, sizes) for both themes.
+   Change a colour here and it updates everywhere on the site.
+   The active theme is set on <html data-theme="dark|light"> by theme.js.
+   ========================================================================== */
+
+:root {
+  /* Brand (same in both themes) */
+  --accent: #3D6BFF;        /* Cursor Blue  */
+  --accent-deep: #2F5BEA;   /* Blue Deep — buttons with white text */
+  --on-accent: #FFFFFF;
+
+  /* Typography */
+  --font-sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: 24px;
+  --rail-pad: 48px;
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+/* ---------- Dark theme (default) ---------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070B14;
+  --fg: #FFFFFF;
+  --fg-2: #C9D3E6;
+  --fg-3: #7D8BA3;
+  --line-no: #4B5567;
+  --link: #8FA9FF;
+  --code: #E4EAF5;
+  --code-kw: #C792EA;
+  --code-str: #9ECE6A;
+  --line: rgba(143, 169, 255, 0.15);
+  --line-2: rgba(143, 169, 255, 0.32);
+  --panel: rgba(7, 11, 20, 0.6);
+  --footer: rgba(7, 11, 20, 0.88);
+  --chip: rgba(61, 107, 255, 0.2);
+  --chip-strong: rgba(61, 107, 255, 0.28);
+  --status: rgba(61, 107, 255, 0.14);
+  --inset: rgba(255, 255, 255, 0.05);
+  --hover: rgba(143, 169, 255, 0.07);
+  --warn: #FEBC2E;
+  --dot: rgba(143, 169, 255, 0.22);
+  --dot-hi: #8FA9FF;
+  --trace: rgba(143, 169, 255, 0.18);
+  --orb-opacity: 0.3;
+  --glass-bg: linear-gradient(150deg, rgba(143, 169, 255, 0.12), rgba(15, 27, 45, 0.42) 42%, rgba(10, 16, 30, 0.62));
+  --glass-edge: linear-gradient(140deg, rgba(143, 169, 255, 0.6), rgba(143, 169, 255, 0.1) 30%, rgba(143, 169, 255, 0.06) 65%, rgba(61, 107, 255, 0.65));
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 70px -30px rgba(0, 0, 0, 0.85);
+  --sheen: rgba(255, 255, 255, 0.07);
+}
+
+/* ---------- Light theme ---------- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F3F6FB;
+  --fg: #0F1B2D;
+  --fg-2: #4B5567;
+  --fg-3: #5F687A;
+  --line-no: #9AA6BA;
+  --link: #2F5BEA;
+  --code: #0F1B2D;
+  --code-kw: #7C3AED;
+  --code-str: #2E7D32;
+  --line: rgba(15, 27, 45, 0.1);
+  --line-2: rgba(15, 27, 45, 0.2);
+  --panel: rgba(255, 255, 255, 0.65);
+  --footer: rgba(255, 255, 255, 0.82);
+  --chip: rgba(47, 91, 234, 0.1);
+  --chip-strong: rgba(47, 91, 234, 0.14);
+  --status: rgba(47, 91, 234, 0.08);
+  --inset: rgba(15, 27, 45, 0.04);
+  --hover: rgba(47, 91, 234, 0.06);
+  --warn: #B45309;
+  --dot: rgba(47, 91, 234, 0.16);
+  --dot-hi: rgba(47, 91, 234, 0.6);
+  --trace: rgba(47, 91, 234, 0.22);
+  --orb-opacity: 0.16;
+  --glass-bg: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.64) 45%, rgba(255, 255, 255, 0.52));
+  --glass-edge: linear-gradient(140deg, #FFFFFF, rgba(255, 255, 255, 0.4) 30%, rgba(47, 91, 234, 0.08) 65%, rgba(47, 91, 234, 0.35));
+  --glass-shadow: inset 0 1px 0 #FFFFFF, 0 30px 70px -34px rgba(15, 27, 45, 0.32);
+  --sheen: rgba(255, 255, 255, 0.4);
+}

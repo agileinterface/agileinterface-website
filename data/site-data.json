@@ -1,0 +1,100 @@
+{
+  "$schema": "./site-data.schema.json",
+
+  "company": {
+    "name": "Agile Interface",
+    "legalName": "Agile Interface (Private) Limited",
+    "registrationNo": "[Company registration number]",
+    "address": "[Registered office address]",
+    "email": "hello@agileinterface.com",
+    "location": "[City, Country]"
+  },
+
+  "hero": {
+    "tagline": "We build Android, iOS, desktop and web apps — from one Kotlin codebase."
+  },
+
+  "ticker": {
+    "words": ["kotlin", "compose-multiplatform", "android", "ios", "desktop", "web"],
+    "symbols": ["{ }", "=>", "?.", "::", "</>", "@"],
+    "secondary": ["ui-ux-design", "shared-kotlin-core", "product-launch", "store-releases", "one-codebase", "every-screen"]
+  },
+
+  "build": {
+    "points": [
+      { "title": "Shared core.", "text": "Business logic, networking and data are written once in Kotlin." },
+      { "title": "Shared UI.", "text": "Screens built with Compose Multiplatform, shared wherever it makes sense." },
+      { "title": "Native where it counts.", "text": "Platform-specific code only where a platform needs it." }
+    ],
+    "targets": ["android", "ios", "desktop", "web"],
+    "steps": [
+      { "hash": "1f3c8b4", "title": "Discover", "text": "The problem, the users and what success looks like." },
+      { "hash": "9a0f3e2", "title": "Design", "text": "Flows and screens you can click through before we code." },
+      { "hash": "c7d2f19", "title": "Build", "text": "Shared Kotlin core, polished platform UI, regular test builds." },
+      { "hash": "e4b1a07", "title": "Ship & grow", "text": "Store launch, analytics and updates after release." }
+    ],
+    "platforms": [
+      { "icon": "android", "name": "Android", "store": "Google Play" },
+      { "icon": "ios", "name": "iOS", "store": "App Store" },
+      { "icon": "desktop", "name": "Desktop", "store": "Windows · macOS · Linux" },
+      { "icon": "web", "name": "Web", "store": "Any modern browser" }
+    ]
+  },
+
+  "terminal": [
+    { "command": "whoami", "output": ["Agile Interface (Private) Limited", "A product-first software house founded by three Kotlin Multiplatform developers."] },
+    { "command": "cat mission.txt", "output": ["Build products we would want to use ourselves.", "Write them once in Kotlin. Ship them to every screen.", "Keep improving them long after launch."] },
+    { "command": "ls services", "output": ["multiplatform-apps/   web-products/", "ui-ux-design/        launch-and-growth/"] },
+    { "command": "cat stack.txt", "output": ["kotlin", "compose multiplatform", "android · ios · desktop · web"] },
+    { "command": "contact", "output": ["email:    {email}", "location: {location}"] }
+  ],
+
+  "products": [
+    {
+      "name": "[Product name]",
+      "file": "product_one.kt",
+      "description": "[One line on what it does and who it is for.]",
+      "status": "live",
+      "targets": ["android", "ios"],
+      "icon": "",
+      "links": [
+        { "label": "Get it on Google Play", "url": "https://play.google.com/store/apps/details?id=your.package.name" }
+      ]
+    },
+    {
+      "name": "[Product name]",
+      "file": "product_two.kt",
+      "description": "[One line on what it does and who it is for.]",
+      "status": "in-development",
+      "targets": ["android", "ios", "desktop", "web"],
+      "icon": "",
+      "links": []
+    }
+  ],
+
+  "team": [
+    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" },
+    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" },
+    { "name": "[Founder name]", "role": "Kotlin Multiplatform", "linkedin": "", "github": "" }
+  ],
+
+  "contact": {
+    "text": "Tell us what you're building. We'll reply with questions and a suggested plan.",
+    "ctaLabel": "Start a project",
+    "emailSubject": "New project enquiry — Agile Interface website"
+  },
+
+  "footer": {
+    "legal": [
+      { "label": "Privacy Policy", "url": "/privacy" },
+      { "label": "Terms of Service", "url": "/terms" },
+      { "label": "App Privacy Policies", "url": "/privacy#apps" },
+      { "label": "Account & data deletion", "url": "/privacy#deletion" }
+    ],
+    "social": [
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/company/your-company" },
+      { "label": "GitHub", "url": "https://github.com/your-org" },
+      { "label": "Google Play developer page", "url": "https://play.google.com/store/apps/dev?id=YOUR_DEVELOPER_ID" }
+    ]
+  }
+}

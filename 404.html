@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — Agile Interface</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070B14">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ai-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
+  <!-- Absolute paths: a 404 page can be shown at any URL depth -->
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><div class="bg__dots"></div><div class="bg__orb bg__orb--1"></div></div>
+  <main class="page notfound">
+    <div class="terminal glass">
+      <div class="window__bar">
+        <span class="window__dot window__dot--r"></span><span class="window__dot window__dot--y"></span><span class="window__dot window__dot--g"></span>
+        <span class="window__title">agile@interface: ~</span>
+      </div>
+      <div class="terminal__screen">
+        <div><span class="terminal__prompt">$</span> <span class="terminal__cmd">cd <span id="missing-path">/this-page</span></span></div>
+        <div class="terminal__out">bash: cd: no such file or directory (404)</div>
+        <div><span class="terminal__prompt">$</span> <span class="terminal__caret blink"></span></div>
+      </div>
+      <div class="terminal__cmds">
+        <a class="btn btn--primary" href="/">cd ~ (home)</a>
+        <a class="cmd" style="display:inline-flex;align-items:center" href="/#contact">contact</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.getElementById('missing-path').textContent = location.pathname;
+  </script>
+</body>
+</html>

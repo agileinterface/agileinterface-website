@@ -1,0 +1,38 @@
+# Cloudflare Pages response headers — https://developers.cloudflare.com/pages/configuration/headers/
+#
+# Heads-up: if two rules match the same URL and set the SAME header,
+# Cloudflare joins the values with a comma (it does not override).
+# That's why the cache rules below never overlap.
+
+# Security headers for every page and file
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Keep *.pages.dev copies (production + preview builds) out of Google,
+# so only agileinterface.com gets indexed.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Content changes often → always revalidate
+/data/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS / JS / images / icons: cache for a day
+/assets/css/*
+  Cache-Control: public, max-age=86400
+/assets/js/*
+  Cache-Control: public, max-age=86400
+/assets/img/*
+  Cache-Control: public, max-age=86400
+/assets/favicon/*
+  Cache-Control: public, max-age=86400
+
+# Font files never change → cache for a year
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/site.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
