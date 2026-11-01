@@ -42,7 +42,7 @@
   },
 
   "terminal": [
-    { "command": "whoami", "output": ["Agile Interface (Private) Limited", "A product-first software house founded by three Kotlin Multiplatform developers."] },
+    { "command": "whoami", "output": ["Agile Interface (Private) Limited", "A product-first software house founded by two Kotlin Multiplatform developers and an ASO marketer."] },
     { "command": "cat mission.txt", "output": ["Build products we would want to use ourselves.", "Write them once in Kotlin. Ship them to every screen.", "Keep improving them long after launch."] },
     { "command": "ls services", "output": ["multiplatform-apps/   web-products/", "ui-ux-design/        launch-and-growth/"] },
     { "command": "cat stack.txt", "output": ["kotlin", "compose multiplatform", "android · ios · desktop · web"] },
@@ -51,22 +51,47 @@
 
   "products": [
     {
-      "name": "[Product name]",
-      "file": "product_one.kt",
-      "description": "[One line on what it does and who it is for.]",
-      "status": "live",
-      "targets": ["android", "ios"],
+      "name": "Qibla Compass & Quran",
+      "file": "qibla_compass_quran.kt",
+      "description": "Find the Qibla from anywhere, get accurate prayer times with adhan, follow the Hijri calendar and read the Quran, with recitation practice that highlights each word you read correctly or wrongly.",
+      "status": "in-development",
+      "targets": ["android"],
       "icon": "",
-      "links": [
-        { "label": "Get it on Google Play", "url": "https://play.google.com/store/apps/details?id=your.package.name" }
-      ]
+      "links": []
     },
     {
-      "name": "[Product name]",
-      "file": "product_two.kt",
-      "description": "[One line on what it does and who it is for.]",
+      "name": "Translator",
+      "file": "translator.kt",
+      "description": "The translator that teaches you. Translate text, voice and camera input, then keep what you learn with phrases, favorites and history, so every translation helps you remember.",
       "status": "in-development",
-      "targets": ["android", "ios", "desktop", "web"],
+      "targets": ["android"],
+      "icon": "",
+      "links": []
+    },
+    {
+      "name": "AI Phone Doctor",
+      "file": "ai_phone_doctor.kt",
+      "description": "An AI assistant that checks your phone's health, explains what is wrong in plain language and suggests how to fix it.",
+      "status": "in-development",
+      "targets": ["android"],
+      "icon": "",
+      "links": []
+    },
+    {
+      "name": "Charging Animation",
+      "file": "charging_animation.kt",
+      "description": "Turn every charge into a show with custom charging animations, plus charging stats and battery health tips.",
+      "status": "in-development",
+      "targets": ["android"],
+      "icon": "",
+      "links": []
+    },
+    {
+      "name": "Street View Voice Navigation",
+      "file": "street_view_navigation.kt",
+      "description": "Turn-by-turn voice navigation with live traffic status and street-level views, plus an AI trip planner that builds day-by-day plans you can open on the map.",
+      "status": "in-development",
+      "targets": ["android"],
       "icon": "",
       "links": []
     }
