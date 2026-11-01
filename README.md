@@ -31,13 +31,14 @@ agile-interface-website/
 │   │   ├── main.js            ← entry point: loads the JSON, renders, starts effects
 │   │   ├── render.js          ← turns JSON into HTML (safely escaped)
 │   │   ├── theme.js           ← light/dark switch, remembers the choice
+│   │   ├── showcase.js        ← products tabs + phone carousel
 │   │   ├── terminal.js        ← the interactive "Get to know us" terminal
 │   │   └── effects.js         ← typing-on-scroll, reveal-on-scroll, footer year
 │   ├── fonts/                 ← .woff2 font files + their licences (OFL)
 │   ├── favicon/               ← favicons + app icons (from the brand kit)
 │   └── img/
 │       ├── logo/              ← logo SVGs (colour + reversed)
-│       ├── products/          ← ★ put your app icons here
+│       ├── products/<app>/    ← ★ icon.png + screen-1..3.png for each app
 │       └── og-image-1200x630.png  ← preview image for links shared on WhatsApp / LinkedIn
 │
 ├── site.webmanifest           ← name + icons when "added to home screen"
@@ -88,25 +89,41 @@ npx wrangler pages dev .
 ```
 The email updates **everywhere at once**: contact section, footer, terminal `contact` command, privacy and terms pages.
 
-### Add a product
+### Add a product (and its icon + app screens)
 Add an object to the `"products"` array (and keep a comma between objects):
 ```json
 {
-  "name": "Qibla Finder",
-  "file": "qibla_finder.kt",
-  "description": "Accurate Qibla direction, prayer times and Hijri calendar.",
-  "status": "live",
-  "targets": ["android", "ios"],
-  "icon": "assets/img/products/qibla-finder.png",
-  "links": [
-    { "label": "Get it on Google Play", "url": "https://play.google.com/store/apps/details?id=com.example.app" }
-  ]
+  "name": "Qibla Compass & Quran",
+  "file": "qibla_compass_quran.kt",
+  "description": "One or two sentences on what it does.",
+  "status": "in-development",
+  "targets": ["android"],
+  "icon": "assets/img/products/qibla-compass-quran/icon.png",
+  "accent": "#D9B35A",
+  "tags": ["qibla", "prayer times", "quran"],
+  "screens": [
+    { "image": "assets/img/products/qibla-compass-quran/screen-1.png", "label": "Qibla compass" },
+    { "image": "assets/img/products/qibla-compass-quran/screen-2.png", "label": "Prayer times" },
+    { "image": "assets/img/products/qibla-compass-quran/screen-3.png", "label": "Quran" }
+  ],
+  "links": []
 }
 ```
-- `status`: `"live"`, `"in-development"` or `"coming-soon"` (changes the coloured label).
+- `status`: `"live"`, `"in-development"` or `"coming-soon"`. Anything except `live` shows a greyed **“Coming soon on Google Play”** button.
 - `targets`: any of `"android"`, `"ios"`, `"desktop"`, `"web"`.
-- `icon`: a square PNG/WebP (512×512 is ideal) saved in `assets/img/products/`. Leave it `""` and a letter tile is shown instead.
-- `links`: as many as you like. Empty URLs are hidden automatically.
+- `accent`: the app's brand colour (`#RRGGBB`). Tints the glow behind the phones and the active dot.
+- `tags`: short feature chips under the description (optional).
+
+**App icon.** Save a square PNG (512×512 — the Play Store icon works) as `assets/img/products/<app-folder>/icon.png` and keep the `"icon"` path in the JSON. Missing file = a letter tile is shown instead.
+
+**App screens (the phone mockups).** Take 3 screenshots from the running app (or export them from Figma), 1080×2340 PNG or WebP, and save them as `screen-1.png`, `screen-2.png`, `screen-3.png` in the same folder. Any normal phone screenshot works (it is cropped to fill the frame, top-aligned). Up to 6 are supported; `label` is the caption under the phones. Missing files = a “Screens coming soon” phone is shown for that slot.
+
+Each app already has its folder under `assets/img/products/` (`qibla-compass-quran`, `translator`, `ai-phone-doctor`, `charging-animation`, `street-view-navigation`) and the JSON already points at the file names above, so you can just drop the files in.
+
+**When an app goes live.** Set `"status": "live"` and add the store link — the greyed button becomes the real download button:
+```json
+"links": [ { "label": "Get it on Google Play", "url": "https://play.google.com/store/apps/details?id=YOUR.PACKAGE.NAME" } ]
+```
 
 ### Team
 ```json
@@ -172,7 +189,7 @@ To send `www` → apex: **Rules → Redirect Rules** (or Bulk Redirects) for `ww
 - [ ] Create `hello@agileinterface.com` with Cloudflare Email Routing.
 - [ ] Write the real **Privacy Policy** (`privacy.html`). Google Play requires a privacy policy URL for your apps, plus an account-deletion URL if users can create accounts. Have it reviewed; the file is a template, not legal advice.
 - [ ] Fill in `terms.html` the same way.
-- [ ] Add product icons to `assets/img/products/`.
+- [ ] Add each app's `icon.png` and `screen-1..3.png` to `assets/img/products/<app>/`.
 - [ ] Open the site on a real phone, try both themes, and click every footer link.
 - [ ] Run Chrome DevTools → **Lighthouse** and aim for green scores.
 

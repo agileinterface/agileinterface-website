@@ -56,7 +56,14 @@
       "description": "Find the Qibla from anywhere, get accurate prayer times with adhan, follow the Hijri calendar and read the Quran, with recitation practice that highlights each word you read correctly or wrongly.",
       "status": "in-development",
       "targets": ["android"],
-      "icon": "",
+      "icon": "assets/img/products/qibla-compass-quran/icon.png",
+      "accent": "#D9B35A",
+      "tags": ["qibla", "prayer times", "quran", "hijri calendar", "recitation"],
+      "screens": [
+        { "image": "assets/img/products/qibla-compass-quran/screen-1.png", "label": "Qibla compass" },
+        { "image": "assets/img/products/qibla-compass-quran/screen-2.png", "label": "Prayer times" },
+        { "image": "assets/img/products/qibla-compass-quran/screen-3.png", "label": "Quran & recitation" }
+      ],
       "links": []
     },
     {
@@ -65,7 +72,14 @@
       "description": "The translator that teaches you. Translate text, voice and camera input, then keep what you learn with phrases, favorites and history, so every translation helps you remember.",
       "status": "in-development",
       "targets": ["android"],
-      "icon": "",
+      "icon": "assets/img/products/translator/icon.png",
+      "accent": "#0E6B73",
+      "tags": ["text", "voice", "camera", "phrases", "learn"],
+      "screens": [
+        { "image": "assets/img/products/translator/screen-1.png", "label": "Translate" },
+        { "image": "assets/img/products/translator/screen-2.png", "label": "Camera translate" },
+        { "image": "assets/img/products/translator/screen-3.png", "label": "Learn" }
+      ],
       "links": []
     },
     {
@@ -74,7 +88,14 @@
       "description": "An AI assistant that checks your phone's health, explains what is wrong in plain language and suggests how to fix it.",
       "status": "in-development",
       "targets": ["android"],
-      "icon": "",
+      "icon": "assets/img/products/ai-phone-doctor/icon.png",
+      "accent": "#3DDC97",
+      "tags": ["health scan", "battery", "storage", "ai fixes"],
+      "screens": [
+        { "image": "assets/img/products/ai-phone-doctor/screen-1.png", "label": "Health score" },
+        { "image": "assets/img/products/ai-phone-doctor/screen-2.png", "label": "Scan results" },
+        { "image": "assets/img/products/ai-phone-doctor/screen-3.png", "label": "Ask the doctor" }
+      ],
       "links": []
     },
     {
@@ -83,7 +104,14 @@
       "description": "Turn every charge into a show with custom charging animations, plus charging stats and battery health tips.",
       "status": "in-development",
       "targets": ["android"],
-      "icon": "",
+      "icon": "assets/img/products/charging-animation/icon.png",
+      "accent": "#00F0A8",
+      "tags": ["animations", "charging stats", "battery tips"],
+      "screens": [
+        { "image": "assets/img/products/charging-animation/screen-1.png", "label": "Animations" },
+        { "image": "assets/img/products/charging-animation/screen-2.png", "label": "Charging preview" },
+        { "image": "assets/img/products/charging-animation/screen-3.png", "label": "Charging stats" }
+      ],
       "links": []
     },
     {
@@ -92,7 +120,14 @@
       "description": "Turn-by-turn voice navigation with live traffic status and street-level views, plus an AI trip planner that builds day-by-day plans you can open on the map.",
       "status": "in-development",
       "targets": ["android"],
-      "icon": "",
+      "icon": "assets/img/products/street-view-navigation/icon.png",
+      "accent": "#4C8DFF",
+      "tags": ["voice navigation", "traffic", "street view", "ai trip planner"],
+      "screens": [
+        { "image": "assets/img/products/street-view-navigation/screen-1.png", "label": "Navigation" },
+        { "image": "assets/img/products/street-view-navigation/screen-2.png", "label": "Street view" },
+        { "image": "assets/img/products/street-view-navigation/screen-3.png", "label": "AI trip planner" }
+      ],
       "links": []
     }
   ],

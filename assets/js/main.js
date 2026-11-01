@@ -3,6 +3,7 @@ import { renderAll } from './render.js';
 import { initTheme, refreshThemeUI } from './theme.js';
 import { initTerminal } from './terminal.js';
 import { initEffects } from './effects.js';
+import { initShowcase } from './showcase.js';
 
 // Root-absolute so it works from any page URL (/, /privacy, /terms)
 const DATA_URL = '/data/site-data.json';
@@ -28,6 +29,7 @@ async function main() {
     }
   }
 
+  try { initShowcase(); } catch (err) { console.error('[agile-interface] Products showcase failed:', err); }
   refreshThemeUI(); // update the footer "theme:" label now that the footer exists
   initEffects();    // run after rendering so new .reveal elements are animated too
 }

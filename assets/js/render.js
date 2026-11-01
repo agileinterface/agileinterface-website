@@ -83,11 +83,61 @@ function renderBuild(build = {}) {
     </div>`).join(''));
 }
 
-function productIcon(p) {
+const HEX = /^#[0-9a-f]{6}$/i;
+const letterOf = (name) => (String(name || '').replace(/[^\p{L}\p{N}]/gu, '')[0] || 'A').toUpperCase();
+
+/** App icon: your image if `icon` is set, otherwise a letter tile. `size` = px. */
+function productIcon(p, size = 96, cls = 'product__icon') {
   const src = safeAsset(p.icon);
-  if (src) return `<img class="product__icon" src="${esc(src)}" alt="${esc(p.name)} app icon" width="96" height="96" loading="lazy">`;
-  const letter = (String(p.name || '').replace(/[^\p{L}\p{N}]/gu, '')[0] || 'A').toUpperCase();
-  return `<div class="product__icon product__icon--placeholder" aria-hidden="true">${esc(letter)}</div>`;
+  const tile = `<div class="${cls} ${cls}--placeholder" aria-hidden="true">${esc(letterOf(p.name))}</div>`;
+  if (!src) return tile;
+  // data-fallback: showcase.js swaps the image for the letter tile if the file is missing
+  return `<img class="${cls}" src="${esc(src)}" alt="${esc(p.name)} app icon" width="${size}" height="${size}" loading="lazy" decoding="async" data-fallback="icon" data-letter="${esc(letterOf(p.name))}">`;
+}
+
+function phoneScreen(p, screen, index) {
+  const src = safeAsset(screen?.image);
+  const label = screen?.label || `Screen ${index + 1}`;
+  const placeholder = `<span class="phone__ph"><b>${esc(letterOf(p.name))}</b><span>Screens coming soon</span></span>`;
+  const inner = src
+    ? `<img src="${esc(src)}" alt="${esc(p.name)} screen: ${esc(label)}" loading="lazy" decoding="async" draggable="false" data-fallback="screen" data-letter="${esc(letterOf(p.name))}">`
+    : placeholder;
+  return `<button type="button" class="phone" data-i="${index}" data-pos="x" aria-label="Show screen: ${esc(label)}"><span class="phone__screen">${inner}</span></button>`;
+}
+
+function productPanel(p, i) {
+  const status = STATUS[p.status] ? p.status : 'in-development';
+  const file = p.file || `${String(p.name || 'product').toLowerCase().replace(/[^a-z0-9]+/g, '_')}.kt`;
+  const accent = HEX.test(p.accent || '') ? p.accent : '';
+  const links = (p.links || [])
+    .map((l) => ({ ...l, url: safeUrl(l.url) }))
+    .filter((l) => l.url);
+  const liveLinks = links.map((l) => `<a class="store-btn" href="${esc(l.url)}"${linkAttrs(l.url)}>${esc(l.label)} →</a>`).join('');
+  const soon = status === 'live' ? '' :
+    `<div class="store-btn store-btn--soon" aria-disabled="true"><span class="store-btn__small">Coming soon on</span><span class="store-btn__big">Google Play</span></div>`;
+  const tags = (p.tags || []).map((t) => `<span>${esc(t)}</span>`).join('');
+  const screens = (p.screens || []).filter((s) => safeAsset(s?.image)).slice(0, 6);
+  // No screenshots yet → three “coming soon” phones so the section still looks finished
+  const phones = (screens.length ? screens : [{}, {}, {}]).map((s, j) => phoneScreen(p, s, j)).join('');
+
+  return `
+    <article class="showcase__panel glass" role="tabpanel" id="panel-${i}" aria-labelledby="tab-${i}" ${i ? 'hidden' : ''}${accent ? ` style="--app-accent:${accent}"` : ''}>
+      <span class="showcase__glow" aria-hidden="true"></span>
+      <div class="showcase__info">
+        <span class="showcase__status product__status--${status}">${STATUS[status]}</span>
+        <div class="showcase__title">${productIcon(p, 64, 'showcase__icon')}<h3 class="product__name">${esc(p.name)}</h3></div>
+        <p class="product__desc">${esc(p.description)}</p>
+        <div class="product__targets">targets = [${(p.targets || []).map(esc).join(', ')}]</div>
+        ${tags ? `<div class="showcase__tags">${tags}</div>` : ''}
+        <div class="showcase__cta">${liveLinks}${soon}</div>
+        <div class="showcase__file">products/${esc(file)}</div>
+      </div>
+      <div class="deck" data-count="${screens.length || 3}">
+        ${phones}
+        <div class="deck__label" aria-live="polite"></div>
+        <div class="deck__dots"></div>
+      </div>
+    </article>`;
 }
 
 function renderProducts(products = []) {
@@ -95,27 +145,17 @@ function renderProducts(products = []) {
     fill('products', '<p class="muted">New products are on the way.</p>');
     return;
   }
-  fill('products', products.map((p) => {
+  const tabs = products.map((p, i) => {
     const status = STATUS[p.status] ? p.status : 'in-development';
     const file = p.file || `${String(p.name || 'product').toLowerCase().replace(/[^a-z0-9]+/g, '_')}.kt`;
-    const links = (p.links || [])
-      .map((l) => ({ ...l, url: safeUrl(l.url) }))
-      .filter((l) => l.url)
-      .map((l) => `<a href="${esc(l.url)}"${linkAttrs(l.url)}>${esc(l.label)} →</a>`).join('');
-    return `
-    <article class="product glass lift reveal">
-      <div class="product__bar"><span>products/${esc(file)}</span><span class="product__status--${status}">● ${STATUS[status]}</span></div>
-      <div class="product__body">
-        ${productIcon(p)}
-        <div class="product__info">
-          <h3 class="product__name">${esc(p.name)}</h3>
-          <p class="product__desc">${esc(p.description)}</p>
-          <div class="product__targets">targets = [${(p.targets || []).map(esc).join(', ')}]</div>
-          ${links ? `<div class="product__links">${links}</div>` : ''}
-        </div>
-      </div>
-    </article>`;
-  }).join(''));
+    return `<button type="button" class="showcase__tab" role="tab" id="tab-${i}" aria-controls="panel-${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">` +
+      `<i class="showcase__dot showcase__dot--${status}" aria-hidden="true"></i>${productIcon(p, 22, 'showcase__tabicon')}<span>${esc(file)}</span></button>`;
+  }).join('');
+  fill('products', `
+    <div class="showcase reveal" data-showcase>
+      <div class="showcase__tabs" role="tablist" aria-label="Our products">${tabs}</div>
+      ${products.map(productPanel).join('')}
+    </div>`);
 }
 
 function renderTeam(team = []) {
