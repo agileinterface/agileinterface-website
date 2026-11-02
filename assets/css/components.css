@@ -231,8 +231,9 @@
 .showcase__tabicon--placeholder { background: var(--accent-deep); color: var(--on-accent); display: flex; align-items: center; justify-content: center; font: 700 11px var(--font-sans); }
 
 .showcase__panel {
+  --px: 44px; /* horizontal padding; the mobile carousel reads it to bleed to the card edges */
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 30px; align-items: center;
-  padding: 44px; border-radius: 0 var(--radius-xl) var(--radius-xl) var(--radius-xl);
+  padding: 44px var(--px); border-radius: 0 var(--radius-xl) var(--radius-xl) var(--radius-xl);
 }
 .showcase__panel[hidden] { display: none; }
 .showcase__glow {
@@ -262,39 +263,85 @@ a.store-btn:hover { transform: translateY(-2px); background: var(--accent); }
 .store-btn__big { font-size: 17px; font-weight: 700; color: var(--fg-2); }
 .showcase__file { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); }
 
-/* Phones. Screenshots fill the screen with object-fit: cover, so any normal phone screenshot works. */
-.deck { position: relative; height: 545px; display: flex; justify-content: center; align-items: center; }
+/* ---- Phones ----------------------------------------------------------------------------
+   No fixed heights and no fixed offsets. .deck is a size container, so every measurement below
+   is derived from the width the deck really gets (cqw = 1% of the deck's width).
+   • ≥ 641px : layered deck (centre phone + two angled neighbours), scales down with the column.
+   • ≤ 640px : native swipe carousel (scroll-snap). No transforms to clip, so nothing can overflow. */
+.deck {
+  container-type: inline-size;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0;
+}
+.deck__track {
+  --pw: clamp(150px, 42cqw, 224px);   /* phone width */
+  --pad: calc(var(--pw) * .031);      /* bezel thickness */
+  position: relative; width: 100%; height: calc(var(--pw) * 2.14);
+  display: flex; justify-content: center; align-items: center;
+}
+@supports not (width: 1cqw) { .deck__track { --pw: 200px; } }
+
 .phone {
-  position: absolute; width: 224px; height: 462px; padding: 7px; border: 0; border-radius: 38px; cursor: pointer;
+  position: absolute; width: var(--pw); padding: var(--pad); border: 0; border-radius: calc(var(--pw) * .17); cursor: pointer;
   background: linear-gradient(160deg, #2b3347, #0c1019); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65), inset 0 0 0 1.5px rgba(255, 255, 255, .14);
   transition: transform .55s cubic-bezier(.2, .8, .2, 1), opacity .4s, filter .4s;
+  -webkit-tap-highlight-color: transparent;
 }
 .phone[data-pos="c"] { transform: none; z-index: 3; cursor: default; }
-.phone[data-pos="r"] { transform: translateX(150px) scale(.8) rotate(5deg); z-index: 2; filter: brightness(.72); }
-.phone[data-pos="l"] { transform: translateX(-150px) scale(.8) rotate(-5deg); z-index: 2; filter: brightness(.72); }
+.phone[data-pos="r"] { transform: translateX(calc(var(--pw) * .67)) scale(.8) rotate(5deg); z-index: 2; filter: brightness(.72); }
+.phone[data-pos="l"] { transform: translateX(calc(var(--pw) * -.67)) scale(.8) rotate(-5deg); z-index: 2; filter: brightness(.72); }
 .phone[data-pos="x"] { transform: scale(.6); opacity: 0; pointer-events: none; z-index: 1; }
 .phone:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.phone__screen { display: block; width: 100%; height: 100%; border-radius: 31px; overflow: hidden; position: relative; background: #070b14; }
-.phone__screen::before { content: ""; position: absolute; top: 7px; left: 50%; width: 62px; height: 16px; margin-left: -31px; border-radius: 10px; background: #05070b; z-index: 2; }
-.phone__screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+/* The screen's height comes from the screenshot's own aspect ratio (1320×2868), so it never distorts. */
+.phone__screen { display: block; width: 100%; aspect-ratio: 1320 / 2868; border-radius: calc(var(--pw) * .138); overflow: hidden; position: relative; background: #070b14; }
+.phone__screen::before { /* camera pill */
+  content: ""; position: absolute; top: calc(var(--pw) * .031); left: 50%; width: 28%; height: calc(var(--pw) * .071);
+  transform: translateX(-50%); border-radius: 99px; background: #05070b; z-index: 2;
+}
+.phone__screen img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .phone__ph {
-  width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center;
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center;
   background: radial-gradient(circle at 50% 32%, var(--app-accent), #070b14 72%); color: #fff;
 }
 .phone__ph b { width: 76px; height: 76px; border-radius: 22px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25); display: flex; align-items: center; justify-content: center; font-size: 32px; }
 .phone__ph span { font-family: var(--font-mono); font-size: 11px; opacity: .85; }
-.deck__label { position: absolute; bottom: 18px; font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); z-index: 5; }
-.deck__dots { position: absolute; bottom: 0; display: flex; gap: 4px; z-index: 5; }
+
+.deck__label { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); min-height: 1.3em; }
+.deck__dots { display: flex; gap: 4px; min-height: 24px; }
 .deck__dots button { width: 24px; height: 24px; border: 0; background: transparent; cursor: pointer; position: relative; }
 .deck__dots button::after { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 99px; background: var(--line-2); transition: width .3s, margin .3s, background-color .3s; }
 .deck__dots button[aria-current="true"]::after { width: 24px; margin-left: -12px; background: var(--app-accent); }
+
+/* Tablet and below: info on top, phones below */
 @media (max-width: 900px) {
-  .showcase__panel { grid-template-columns: 1fr; padding: 30px 22px; }
-  .deck { height: 535px; }
+  .showcase__panel { --px: 22px; grid-template-columns: 1fr; padding-block: 30px; }
+  .showcase__glow { right: 50%; top: auto; bottom: -40px; transform: translateX(50%); }
 }
-@media (max-width: 480px) {
-  .phone[data-pos="r"] { transform: translateX(112px) scale(.74) rotate(5deg); }
-  .phone[data-pos="l"] { transform: translateX(-112px) scale(.74) rotate(-5deg); }
+
+/* Phones: swipe carousel */
+@media (max-width: 640px) {
+  .showcase__panel { --px: 0px; padding-block: 26px 18px; }   /* no side padding on the card: the deck bleeds to its edges… */
+  .showcase__info { padding-inline: 20px; }                    /* …while the text keeps its own */
+  .showcase__icon { width: 52px; height: 52px; border-radius: 14px; }
+  .showcase__cta, .showcase__cta .store-btn { width: 100%; }
+  .showcase__tabs { scrollbar-width: none; }
+  .showcase__tabs::-webkit-scrollbar { display: none; }
+
+  .deck__track {
+    --pw: clamp(160px, 62cqw, 250px);
+    justify-content: flex-start; align-items: flex-start; gap: 14px; height: auto;
+    padding: 6px calc((100cqw - var(--pw)) / 2) 34px;   /* bottom room so the phone shadow isn't clipped by the scroller */
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .deck__track::-webkit-scrollbar { display: none; }
+  .deck__track .phone[data-pos] {
+    box-shadow: 0 16px 28px -16px rgba(0, 0, 0, .6), inset 0 0 0 1.5px rgba(255, 255, 255, .14);
+    position: relative; flex: 0 0 var(--pw); scroll-snap-align: center; scroll-snap-stop: always;
+    transform: scale(.93); opacity: 1; filter: brightness(.7); pointer-events: auto; z-index: auto;
+  }
+  .deck__track .phone[data-pos="c"] { transform: none; filter: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .phone { transition: none; }
