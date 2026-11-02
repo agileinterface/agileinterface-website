@@ -133,7 +133,7 @@ function productPanel(p, i) {
         <div class="showcase__file">products/${esc(file)}</div>
       </div>
       <div class="deck" data-count="${screens.length || 3}">
-        ${phones}
+        <div class="deck__track">${phones}</div>
         <div class="deck__label" aria-live="polite"></div>
         <div class="deck__dots"></div>
       </div>
