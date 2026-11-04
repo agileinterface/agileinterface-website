@@ -5,9 +5,9 @@
     "name": "Agile Interface",
     "legalName": "Agile Interface (Private) Limited",
     "registrationNo": "[Company registration number]",
-    "address": "[Registered office address]",
-    "email": "hello@agileinterface.com",
-    "location": "[City, Country]"
+    "address": "Islamabad, Pakistan",
+    "email": "contact@agileinterface.com",
+    "location": "Islamabad, Pakistan"
   },
 
   "hero": {
@@ -46,7 +46,7 @@
     { "command": "cat mission.txt", "output": ["Build products we would want to use ourselves.", "Write them once in Kotlin. Ship them to every screen.", "Keep improving them long after launch."] },
     { "command": "ls services", "output": ["multiplatform-apps/   web-products/", "ui-ux-design/        launch-and-growth/"] },
     { "command": "cat stack.txt", "output": ["kotlin", "compose multiplatform", "android · ios · desktop · web"] },
-    { "command": "contact", "output": ["email:    {email}", "location: {location}"] }
+    { "command": "contact", "output": ["email:    contact@agileinterface.com", "location: Islamabad, Pakistan"] }
   ],
 
   "products": [
