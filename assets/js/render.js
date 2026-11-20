@@ -215,7 +215,7 @@ function renderFooter(data = {}) {
     .filter((l) => l.url)
     .map((l) => `<a href="${esc(l.url)}"${linkAttrs(l.url)}>${esc(l.label)}</a>`).join('');
 
-  const companyLines = [c.legalName, c.registrationNo ? `Reg. no. ${c.registrationNo}` : '', c.address]
+  const companyLines = [c.legalName, c.registrationNo ? `SECP Reg. no. (CUIN): ${c.registrationNo}` : '', c.address]
     .filter(Boolean).map(esc).join('<br>');
 
   fill('footer', `

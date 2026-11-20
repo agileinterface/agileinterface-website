@@ -4,10 +4,10 @@
   "company": {
     "name": "Agile Interface",
     "legalName": "Agile Interface (Private) Limited",
-    "registrationNo": "[Company registration number]",
-    "address": "Islamabad, Pakistan",
+    "registrationNo": "0361043",
+    "address": "Rawalpindi, Pakistan",
     "email": "contact@agileinterface.com",
-    "location": "Islamabad, Pakistan"
+    "location": "Rawalpindi, Pakistan"
   },
 
   "hero": {
@@ -46,7 +46,7 @@
     { "command": "cat mission.txt", "output": ["Build products we would want to use ourselves.", "Write them once in Kotlin. Ship them to every screen.", "Keep improving them long after launch."] },
     { "command": "ls services", "output": ["multiplatform-apps/   web-products/", "ui-ux-design/        launch-and-growth/"] },
     { "command": "cat stack.txt", "output": ["kotlin", "compose multiplatform", "android · ios · desktop · web"] },
-    { "command": "contact", "output": ["email:    contact@agileinterface.com", "location: Islamabad, Pakistan"] }
+    { "command": "contact", "output": ["email:    contact@agileinterface.com", "location: Rawalpindi, Pakistan"] }
   ],
 
   "products": [
@@ -151,10 +151,6 @@
       { "label": "App Privacy Policies", "url": "/privacy#apps" },
       { "label": "Account & data deletion", "url": "/privacy#deletion" }
     ],
-    "social": [
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/company/your-company" },
-      { "label": "GitHub", "url": "https://github.com/your-org" },
-      { "label": "Google Play developer page", "url": "https://play.google.com/store/apps/dev?id=YOUR_DEVELOPER_ID" }
-    ]
+    "social": []
   }
 }

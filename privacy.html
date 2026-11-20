@@ -18,6 +18,7 @@
   </script>
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="48x48">
   <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon/android-chrome-192x192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
@@ -51,49 +52,175 @@
     <article class="doc__card glass">
       <div class="label">$ cat privacy-policy.md</div>
       <h1>Privacy Policy</h1>
-      <p class="doc__updated">Last updated: [Date]</p>
+      <p class="doc__updated">Last updated: 21 November 2026</p>
 
-      <p>This Privacy Policy explains how <span data-company="legalName">Agile Interface (Private) Limited</span> ("we", "us") collects, uses and protects information when you visit our website or use our apps.</p>
+      <p>This Privacy Policy explains how <span data-company="legalName">Agile Interface (Private) Limited</span> ("<b>we</b>", "<b>us</b>") collects, uses, shares and protects personal information when you visit our website (agileinterface.com) or use our mobile apps (together, the "<b>Services</b>"). It also explains the choices and rights you have. We wrote it to meet widely used international standards, including the EU and UK GDPR, the California Consumer Privacy Act (CCPA/CPRA) and Google Play's User Data policy.</p>
+
+      <div class="doc__note">
+        <b>In short.</b> We collect only what our apps need to work. We do not sell your personal data. Our apps show ads through Google AdMob, use Firebase for sign-in, analytics and crash reports, and send some input (such as voice for translation) to Google AI services. You can delete your account and data at any time, see <a href="#deletion">section 11</a>.
+      </div>
 
       <h2>1. Who we are</h2>
-      <p><span data-company="legalName">Agile Interface (Private) Limited</span>, <span data-company="address">[Registered office address]</span>. Contact: <a data-company-email href="#">hello@agileinterface.com</a>.</p>
+      <p>The company responsible for your personal information (the "data controller") is <span data-company="legalName">Agile Interface (Private) Limited</span>, a company registered in Pakistan with the Securities and Exchange Commission of Pakistan (SECP), registration no. (CUIN) <span data-company="registrationNo">0361043</span>, located in <span data-company="address">Rawalpindi, Pakistan</span>.</p>
+      <p>Contact for any privacy question or request: <a data-company-email href="mailto:contact@agileinterface.com">contact@agileinterface.com</a>.</p>
 
       <h2>2. Information we collect</h2>
-      <p><b>On this website:</b> we do not use advertising cookies or tracking analytics. Your light/dark theme choice is saved only in your own browser (localStorage). If you email us, we receive your email address and whatever you write.</p>
-      <p><b>In our apps:</b> [Describe what each app collects — for example device identifiers, crash reports, approximate location, purchase records — and why. Be specific per app in section 5.]</p>
-
-      <h2>3. How we use information</h2>
+      <h3>a) Information you give us</h3>
       <ul>
-        <li>To reply to your messages and provide the services you ask for.</li>
-        <li>To run, maintain and improve our apps. [Add or remove uses.]</li>
-        <li>[If you show ads: to serve and measure ads.]</li>
+        <li><b>Account information.</b> If you create an account, we receive the details of the sign-in method you choose, such as your email address, name and profile photo, and a unique account ID. We use Firebase Authentication for this. We never see or store a password in readable form.</li>
+        <li><b>Content you enter.</b> For example, text you want translated, questions you ask an AI assistant, trip-planner requests, and the phrases, favorites and history you save in an app.</li>
+        <li><b>Messages.</b> If you email us, we receive your email address and whatever you write.</li>
       </ul>
 
-      <h2>4. Third-party services</h2>
-      <p>[List every SDK or service your website or apps use and link to its privacy policy — for example Google Play services, Firebase, Google AdMob, payment providers.]</p>
+      <h3>b) Information collected automatically</h3>
+      <ul>
+        <li><b>Device and usage data:</b> device model, operating system version, app version, language, time zone, IP address (which gives an approximate location), and how you use features (analytics events).</li>
+        <li><b>Crash and performance data:</b> crash reports and error logs, so we can fix bugs.</li>
+        <li><b>Advertising ID:</b> the Android Advertising ID and similar identifiers, used by the ad service. See section 5.</li>
+      </ul>
 
-      <h2 id="apps">5. App-specific information</h2>
-      <p>[For each app: name, package ID, what data it collects, whether data is shared, and a link to its Google Play Data safety section.]</p>
+      <h3>c) Information from device permissions</h3>
+      <p>Our apps ask for a permission only when a feature needs it, and you can refuse or withdraw any permission in your device settings. Depending on the app, this includes:</p>
+      <ul>
+        <li><b>Location</b> (precise or approximate), to find the Qibla direction, calculate prayer times and provide navigation.</li>
+        <li><b>Microphone</b>, for recitation practice, voice translation and voice commands.</li>
+        <li><b>Camera</b>, for camera translation.</li>
+        <li><b>Motion and compass sensors</b>, for the Qibla compass.</li>
+        <li><b>Battery, charging and storage status</b>, for the charging and phone-health apps.</li>
+        <li><b>Notifications</b>, and, where needed, <b>display over other apps</b> for charging animations.</li>
+      </ul>
+      <p>Where possible, audio, video and camera input is processed on your device. Some features send input to a cloud service to work, as described in sections 6 and 7.</p>
 
-      <h2>6. Data retention</h2>
-      <p>[How long you keep each kind of data, and when you delete it.]</p>
+      <h3>d) This website</h3>
+      <p>The website does not use advertising cookies or tracking analytics. Your light/dark theme choice is stored only in your own browser (localStorage) and is never sent to us. Our hosting provider, Cloudflare, may process technical data such as your IP address in server logs to deliver the site and keep it secure.</p>
 
-      <h2 id="deletion">7. Your rights &amp; account / data deletion</h2>
-      <p>You can ask us to access, correct or delete your personal data. Email <a data-company-email href="#">hello@agileinterface.com</a> with the subject "Data deletion request" and the app or account it concerns. [State what is deleted, what may be kept and why, and how long it takes.]</p>
+      <h2>3. How we use information and our legal bases</h2>
+      <p>If the GDPR or a similar law applies to you, we rely on these legal bases:</p>
+      <ul>
+        <li><b>To provide the Services you ask for</b> (contract): create and manage your account, run app features, and reply to your messages.</li>
+        <li><b>To improve and secure the Services</b> (legitimate interests): analytics, crash reports, bug fixing, preventing abuse and fraud.</li>
+        <li><b>To show ads and use certain permissions</b> (consent): personalised ads and, where required, access to location, microphone and camera. You can withdraw consent at any time.</li>
+        <li><b>To follow the law</b> (legal obligation): respond to lawful requests and keep required records.</li>
+      </ul>
+      <p>We do not use your personal information to make decisions that have legal or similarly significant effects on you.</p>
 
-      <h2>8. Children</h2>
-      <p>[State whether your apps are directed at children and how you comply with the rules that apply.]</p>
+      <h2>4. Who we share information with</h2>
+      <p><b>We do not sell your personal information for money.</b> We share information only with:</p>
+      <ul>
+        <li><b>Service providers</b> that process data for us under their own terms and privacy commitments (listed in section 6).</li>
+        <li><b>Advertising partners</b>, as explained in section 5.</li>
+        <li><b>Authorities or other parties</b>, if the law requires it or to protect rights, safety and security.</li>
+        <li><b>A successor</b>, if we are part of a merger, acquisition or sale of assets. We would tell you and respect this policy.</li>
+      </ul>
 
-      <h2>9. Security</h2>
-      <p>[Describe, in plain words, how you protect data — for example encryption in transit.]</p>
+      <h2>5. Advertising (Google AdMob)</h2>
+      <p>Our apps show ads using Google AdMob. AdMob may collect and use your Advertising ID, IP address, device information and ad-interaction data to show and measure ads, and, if you allow it, to personalise them.</p>
+      <ul>
+        <li><b>Consent.</b> Where the law requires it (for example in the European Economic Area, the United Kingdom and Switzerland), the app asks for your choice through a consent message before showing personalised ads. You can change your choice later from the app's privacy settings, if the app provides one.</li>
+        <li><b>Opt out.</b> On Android you can reset your Advertising ID or opt out of ads personalisation in <i>Settings → Google → Ads</i>. You will still see ads, but they will be less relevant.</li>
+        <li><b>US state privacy laws.</b> Under some laws (such as California's), sharing data with an ad partner for personalised ads can count as "sharing" or "selling". You can opt out as described above or by contacting us.</li>
+        <li>Learn more: <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">How AdMob uses data</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data from partner apps</a>.</li>
+      </ul>
 
-      <h2>10. Changes to this policy</h2>
-      <p>We will update this page when our practices change and revise the "Last updated" date above.</p>
+      <h2>6. Third-party services we use</h2>
+      <p>We do not run our own servers. Our apps use Google services, including Firebase, to store and process data. Each has its own privacy policy.</p>
+      <ul>
+        <li><b>Firebase Authentication</b>: sign-in and account management.</li>
+        <li><b>Firebase Analytics</b>: usage statistics that help us improve the apps.</li>
+        <li><b>Firebase Crashlytics</b>: crash and error reports.</li>
+        <li><b>Firebase cloud storage and database</b>: account data and content that an app saves to your account.</li>
+        <li><b>Firebase AI Logic (Google AI)</b>: AI features, such as voice translation. See section 7.</li>
+        <li><b>Google AdMob</b>: advertising (section 5).</li>
+        <li><b>Google Play services</b> and, for navigation features, <b>Google Maps and Street View</b>.</li>
+      </ul>
+      <p>Policies: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> · <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy and security</a>.</p>
 
-      <h2>11. Contact</h2>
-      <p><span data-company="legalName">Agile Interface (Private) Limited</span> · <a data-company-email href="#">hello@agileinterface.com</a> · <span data-company="location">[City, Country]</span></p>
+      <h2>7. AI features and on-device processing</h2>
+      <p>Some audio, video and AI processing happens on your device and does not leave it. Voice translation uses AI services provided through Firebase AI Logic. When you use it, the voice or text you submit is sent to Google to be processed and returned to you as a translation. We use it only to give you that result. Please do not submit sensitive information, such as passwords or financial details, to an AI feature. AI output can be wrong, so check anything important.</p>
 
-      <p class="doc__note">Template only, not legal advice. Fill in every [bracket] to match what your website and apps really do, and have it checked by someone qualified before publishing.</p>
+      <h2 id="apps">8. App-specific information</h2>
+      <p>This is what each of our apps uses beyond the common items above (Firebase sign-in, analytics, crash reports and AdMob ads).</p>
+
+      <h3>Qibla Compass &amp; Quran</h3>
+      <ul>
+        <li><b>Location and compass/motion sensors:</b> to show the Qibla direction and calculate prayer times and the Hijri calendar.</li>
+        <li><b>Microphone:</b> for recitation practice, which checks the words you read.</li>
+        <li><b>Notifications:</b> for adhan and prayer reminders.</li>
+      </ul>
+
+      <h3>Translator</h3>
+      <ul>
+        <li><b>Text, voice and camera input</b> you choose to translate. Voice translation uses Google AI (section 7).</li>
+        <li><b>Saved phrases, favorites and history</b>, stored with your account.</li>
+      </ul>
+
+      <h3>AI Phone Doctor</h3>
+      <ul>
+        <li><b>Device health data:</b> battery, storage and performance status, to explain problems and suggest fixes.</li>
+        <li><b>Your questions</b> to the AI assistant, processed by Google AI (section 7).</li>
+      </ul>
+
+      <h3>Charging Animation</h3>
+      <ul>
+        <li><b>Battery and charging status</b>, to show animations, charging stats and battery tips.</li>
+        <li><b>Display over other apps</b> permission, only to show the charging animation.</li>
+      </ul>
+
+      <h3>Street View Voice Navigation</h3>
+      <ul>
+        <li><b>Precise location</b>, for turn-by-turn navigation, live traffic and street-level views.</li>
+        <li><b>Voice commands</b> and the <b>trip-planner requests</b> you enter, to give directions and AI-generated plans.</li>
+      </ul>
+      <p>Each app's Google Play listing also has a "Data safety" section, which matches this policy.</p>
+
+      <h2>9. International data transfers</h2>
+      <p>We are based in Pakistan. Our service providers, including Google, process data in many countries, which may have different data-protection laws from yours. Where required, transfers rely on safeguards such as the Standard Contractual Clauses that Google offers to its customers. By using the Services you understand that your information may be processed outside your country.</p>
+
+      <h2>10. How long we keep information</h2>
+      <ul>
+        <li><b>Account data and saved content:</b> until you delete your account or ask us to delete it.</li>
+        <li><b>Analytics data:</b> kept by Firebase for a limited period, currently up to 14 months.</li>
+        <li><b>Crash reports:</b> kept by Firebase for a limited period, currently up to 90 days.</li>
+        <li><b>Emails to us:</b> kept while we need them to help you, then deleted.</li>
+        <li><b>Data on your device</b> stays there until you delete it or uninstall the app.</li>
+      </ul>
+      <p>We may keep some information longer if the law requires it or to resolve disputes and prevent abuse.</p>
+
+      <h2 id="deletion">11. Your rights, and account &amp; data deletion</h2>
+      <p>Depending on where you live, you may have the right to:</p>
+      <ul>
+        <li><b>access</b> the personal information we hold about you, and get a copy;</li>
+        <li><b>correct</b> information that is wrong or incomplete;</li>
+        <li><b>delete</b> your information;</li>
+        <li><b>restrict or object to</b> certain processing, and <b>withdraw consent</b> at any time;</li>
+        <li><b>data portability</b>, which means receiving your data in a common format;</li>
+        <li><b>opt out</b> of the sale or sharing of personal information and of targeted advertising;</li>
+        <li><b>not be treated unfairly</b> for using these rights;</li>
+        <li><b>complain</b> to your local data-protection authority.</li>
+      </ul>
+
+      <h3>How to delete your account and data</h3>
+      <ol>
+        <li><b>In the app:</b> open <i>Settings</i> and choose <i>Delete account</i>.</li>
+        <li><b>By email:</b> write to <a data-company-email href="mailto:contact@agileinterface.com">contact@agileinterface.com</a> with the subject "Data deletion request", the app name and the email address of your account. We may ask you to confirm it is you.</li>
+      </ol>
+      <p>We delete your account and the personal information linked to it within 30 days. Copies in backups are overwritten shortly after. We may keep limited information if the law requires it, for example records of a legal request. Data held by Google (for example your Google account or ad data) is managed by Google. Use your Google Account settings for it.</p>
+      <p>To use any other right, email us. We reply within one month, or sooner where the law says so.</p>
+
+      <h2>12. Children</h2>
+      <p>Our Services are not directed at children under 13 (or under 16 where your country sets a higher age). We do not knowingly collect personal information from children. If you believe a child has given us information, contact us and we will delete it.</p>
+
+      <h2>13. Security</h2>
+      <p>We protect information with measures such as encryption in transit (HTTPS), access controls provided by Firebase, and keeping the data we collect to a minimum. No online service is completely secure, so we cannot guarantee absolute security. If a data breach affects you, we will notify you and the authorities as the law requires.</p>
+
+      <h2>14. Links to other sites</h2>
+      <p>Our Services may link to other websites or apps. We do not control them and are not responsible for their privacy practices. Please read their policies.</p>
+
+      <h2>15. Changes to this policy</h2>
+      <p>We may update this policy when our practices or the law change. We will post the new version here with a new "Last updated" date, and for material changes we will also notify you in the app or by email where appropriate.</p>
+
+      <h2>16. Contact us</h2>
+      <p><span data-company="legalName">Agile Interface (Private) Limited</span> · SECP CUIN <span data-company="registrationNo">0361043</span> · <span data-company="location">Rawalpindi, Pakistan</span> · <a data-company-email href="mailto:contact@agileinterface.com">contact@agileinterface.com</a></p>
     </article>
   </main>
 

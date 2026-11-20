@@ -12,7 +12,7 @@
 
 **We build Android, iOS, desktop and web apps, from one Kotlin codebase.**
 
-[Website](https://agileinterface.com) · [Contact](mailto:hello@agileinterface.com) · [Privacy Policy](https://agileinterface.com/privacy) · [Terms of Service](https://agileinterface.com/terms)
+[Website](https://agileinterface.com) · [Contact](mailto:contact@agileinterface.com) · [Privacy Policy](https://agileinterface.com/privacy) · [Terms of Service](https://agileinterface.com/terms)
 
 </div>
 
@@ -74,7 +74,7 @@ All of these are currently in development for Android.
 
 Tell us what you're building. We'll reply with questions and a suggested plan.
 
-**[hello@agileinterface.com](mailto:hello@agileinterface.com)** · **[agileinterface.com](https://agileinterface.com)**
+**[contact@agileinterface.com](mailto:contact@agileinterface.com)** · **[agileinterface.com](https://agileinterface.com)**
 
 ---
 
